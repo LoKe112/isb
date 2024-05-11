@@ -33,23 +33,23 @@ def txt_read (file_path: str) -> str:
     try:
         with open(file_path, "r", encoding="UTF-8") as file:
             return file.read().replace("\n", " \n")
-    except Exception as e:
-        print("Произошла ошибка:", e)
+    except Exception :
+        print(Exception)
 
 def json_read(file_path: str) -> dict[str:str]:
     try:
         with open(file_path, 'r', encoding="UTF-8") as file:
             return json.load(file)
-    except Exception as e:
-        print("Произошла ошибка:", e)
+    except Exception :
+        print(Exception)
 
 
 def json_write(file_path: str, key: dict) -> None:
     try:
         with open(file_path, 'w', encoding="UTF-8") as file:
             json.dump(key, file)
-    except Exception as e:
-        print("Произошла ошибка:", e)
+    except Exception :
+        print(Exception)
         
 def main() -> None:
     parser = argparse.ArgumentParser()
