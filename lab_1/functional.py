@@ -2,7 +2,6 @@ import operator
 import json
 import argparse
 import os
-import sys
 
 
 def get_frequency(text: str) -> dict:
