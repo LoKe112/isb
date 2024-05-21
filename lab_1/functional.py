@@ -103,7 +103,12 @@ def main() -> None:
     parser.add_argument("key", type=str)
     parser.add_argument("original_file", type=str)
     parser.add_argument("result_file", type=str)
+    parser.add_argument("frequency_file", type=str)
     args = parser.parse_args()
+    json_write(
+        os.path.join(args.dir, args.frequency_file),
+        get_frequency(txt_read(os.path.join(args.dir, args.original_file))),
+    )
     type_key = text_process(
         txt_read(os.path.join(args.dir, args.original_file)),
         json_read(os.path.join(args.dir, args.key)),
