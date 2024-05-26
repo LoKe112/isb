@@ -37,15 +37,23 @@ def identical_consecutive_test(sequence: str) -> float:
     """
     try:
         one_proportion = sequence.count("1") / len(sequence)
-        if math.fabs(one_proportion - 0.5) < (2 / math.sqrt(len(sequence))):            
+        if math.fabs(one_proportion - 0.5) < (2 / math.sqrt(len(sequence))):
             v_n = 0
             for i in range(0, len(sequence) - 1):
-                if sequence[i] != sequence[i+1]:
-                    v_n += 1                
+                if sequence[i] != sequence[i + 1]:
+                    v_n += 1
             p_value = math.erfc(
-                math.fabs(v_n - 2 * len(sequence) * one_proportion * (1 - one_proportion))
-                / (2 * math.sqrt(2 * len(sequence)) * one_proportion * (1 - one_proportion)))
-            return p_value       
+                math.fabs(
+                    v_n - 2 * len(sequence) * one_proportion * (1 - one_proportion)
+                )
+                / (
+                    2
+                    * math.sqrt(2 * len(sequence))
+                    * one_proportion
+                    * (1 - one_proportion)
+                )
+            )
+            return p_value
         else:
             return 0
     except Exception as e:
@@ -55,10 +63,10 @@ def identical_consecutive_test(sequence: str) -> float:
 def longest_sequence_test(sequence: str) -> float:
     """
     Function that perform longest sequence test
-    
+
     Args:
         sequence (str): The binary sequence to test.
-        
+
     Returns:
         float: The p-value resulting from the test.
     """
@@ -66,8 +74,8 @@ def longest_sequence_test(sequence: str) -> float:
         i_seq = list(map(int, sequence))
         block_size = 8
         blocks = []
-        for i in range (0, len(i_seq), block_size):
-            blocks.append(i_seq[i:i + block_size])
+        for i in range(0, len(i_seq), block_size):
+            blocks.append(i_seq[i : i + block_size])
         v = {1: 0, 2: 0, 3: 0, 4: 0}
         for block in blocks:
             max_seq = 0
@@ -90,8 +98,8 @@ def longest_sequence_test(sequence: str) -> float:
         x_square = 0
         for i in range(4):
             x_square += math.pow(v[i + 1] - 16 * PI[i], 2) / (16 * PI[i])
-        p_value = mpmath.gammainc(3/2, x_square/2)
-        
+        p_value = mpmath.gammainc(3 / 2, x_square / 2)
+
         return p_value
     except Exception as e:
         print("Error:", e)
