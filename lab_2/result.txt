@@ -1,0 +1,7 @@
+frequency_bit test --> 0.8596837951986662
+identical_consecutive_bits test --> 0.7256806886581656      
+longest_sequence_of_ones_in_block test --> 0.880575901129088
+java_sequence  results:
+frequency_bit test --> 0.8596837951986662
+identical_consecutive_bits test --> 0.1580100061731267
+longest_sequence_of_ones_in_block test --> 0.180221349336035
