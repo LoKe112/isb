@@ -43,15 +43,8 @@ def identical_consecutive_test(sequence: str) -> float:
                 if sequence[i] != sequence[i + 1]:
                     v_n += 1
             p_value = math.erfc(
-                math.fabs(
-                    v_n - 2 * len(sequence) * one_proportion * (1 - one_proportion)
-                )
-                / (
-                    2
-                    * math.sqrt(2 * len(sequence))
-                    * one_proportion
-                    * (1 - one_proportion)
-                )
+                math.fabs(v_n - 2 * len(sequence) * one_proportion * (1 - one_proportion)) /
+                (2 * math.sqrt(2 * len(sequence))* one_proportion * (1 - one_proportion))
             )
             return p_value
         else:
