@@ -38,7 +38,7 @@ class HybridCryptography:
         """
         try:
             if size != 16 and size != 24 and size != 32:
-                raise ValueError("Size of keys must be 128, 192 or 256")
+                raise ValueError("Wrong size")
             symmetric_key = self.symmetric.generate_key(size)
             asymmetric_key = self.asymmetric.generate_key(size)
             private_key, public_key = asymmetric_key
